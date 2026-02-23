@@ -1,3 +1,5 @@
+.env
+seen_log.txt
 #Local Virtual Environment
 venv/
 

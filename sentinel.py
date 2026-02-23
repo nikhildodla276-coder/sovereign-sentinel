@@ -1,13 +1,15 @@
+import os
+from dotenv import load_dotenv
 import requests
 import urllib3
 import time
 from datetime import datetime
 
-
+load_dotenv()
 urllib3.disable_warnings()
 
-TOKEN = "MY_BOT_TOKEN_HERE"
-CHAT_ID = "MY_CHAT_ID_HERE"
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
 
@@ -49,9 +51,3 @@ while True:
     except Exception as e:
         print(f"An error occured: {e}")
         time.sleep(10)
-
-
-
-
-
-
