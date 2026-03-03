@@ -31,3 +31,6 @@ System Architecture: "Initializing the Core Intelligence Layer using local SLMs 
 Operational Dharma: "Deploying Autonomous Agentic Workflows designed to monitor, evaluate, and neutralize digital threats in real-time."
 
 Final State Objective: "Building a resilient Security Fortress that automates the protection of family assets and personal digital identity through Vedic-Logic-informed AI.
+Brain (Local SLM): Using Microsoft Phi-4 or Llama 3.3-8B. These models are small enough to run on a standard laptop but sharp enough for complex logic.
+
+Memory (Vector DB): Using Milvus or ChromaDB to store your private documents (bank statements, family security logs) as encrypted "embeddings.
