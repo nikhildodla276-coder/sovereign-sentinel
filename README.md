@@ -42,3 +42,4 @@ Refactored sentinel.py architecture for cleaner execution flow
   for proper Python function definition practices
 - Fixed undefined variable bug causing notification failure
 - Resolved unused argument warning in Telegram function
+Migrated development environment from nano to VS Code with WSL integration. Diagnosed core logic bug in monitoring loop — break statement causing single-run termination. Planning keyword detection overhaul and continuous monitoring implementation.
