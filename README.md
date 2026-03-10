@@ -43,3 +43,9 @@ Refactored sentinel.py architecture for cleaner execution flow
 - Fixed undefined variable bug causing notification failure
 - Resolved unused argument warning in Telegram function
 Migrated development environment from nano to VS Code with WSL integration. Diagnosed core logic bug in monitoring loop — break statement causing single-run termination. Planning keyword detection overhaul and continuous monitoring implementation.
+- Completed full explanation of all imports and their 
+  roles in the project
+- Understood SSL verification, .env security, and 
+  .gitignore protection logic
+- Migrated terminal from PowerShell to Ubuntu inside 
+  VS Code
