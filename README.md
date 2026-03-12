@@ -50,3 +50,4 @@ Migrated development environment from nano to VS Code with WSL integration. Diag
 - Migrated terminal from PowerShell to Ubuntu inside 
   VS Code
 Optimized the decision-tree logic for an autonomous agentic workflow to reduce token latency by 15%. Refined the feedback loop between the intellect (system prompt) and the senses (API data retrieval) to ensure higher task-completion accuracy.
+Architected a decentralized inference pipeline to minimize reliance on centralized API costs. This strategic shift ensures the body of the project (the infrastructure) remains lean and resilient, maximizing potential profit margins for independent scaling.
