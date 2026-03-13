@@ -51,3 +51,5 @@ Migrated development environment from nano to VS Code with WSL integration. Diag
   VS Code
 Optimized the decision-tree logic for an autonomous agentic workflow to reduce token latency by 15%. Refined the feedback loop between the intellect (system prompt) and the senses (API data retrieval) to ensure higher task-completion accuracy.
 Architected a decentralized inference pipeline to minimize reliance on centralized API costs. This strategic shift ensures the body of the project (the infrastructure) remains lean and resilient, maximizing potential profit margins for independent scaling.
+.gitignore is a special file that tells Git — "these specific files or folders should never be tracked or pushed to GitHub. Ignore them completely."
+Inside your .gitignore file there is a line that
