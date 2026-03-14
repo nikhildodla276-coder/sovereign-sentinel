@@ -53,3 +53,11 @@ Optimized the decision-tree logic for an autonomous agentic workflow to reduce t
 Architected a decentralized inference pipeline to minimize reliance on centralized API costs. This strategic shift ensures the body of the project (the infrastructure) remains lean and resilient, maximizing potential profit margins for independent scaling.
 .gitignore is a special file that tells Git — "these specific files or folders should never be tracked or pushed to GitHub. Ignore them completely."
 Inside your .gitignore file there is a line that
+- Changed KEYWORD from "artificial intelligence" 
+  to "apply now" — fixes false trigger on URL match
+- Removed break statement — enables continuous monitoring
+- Installed BeautifulSoup4 for reliable HTML parsing
+- Understood raw HTML structure and why keyword 
+  search on raw text is unreliable
+- Next: implement seen_log.txt deduplication logic 
+  using BeautifulSoup title extraction
