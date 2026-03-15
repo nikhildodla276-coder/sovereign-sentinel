@@ -1,4 +1,4 @@
-# 🛡️ Sovereign Sentinel
+as# 🛡️ Sovereign Sentinel
 **An enterprise-grade Python monitoring engine for high-availability alerting.**
 
 ## 📊 Technical Validation
@@ -61,3 +61,11 @@ Inside your .gitignore file there is a line that
   search on raw text is unreliable
 - Next: implement seen_log.txt deduplication logic 
   using BeautifulSoup title extraction
+1. Fetch the page
+2. Find all internship titles on the page
+3. For each title:
+   - Check if it exists in seen_log.txt
+   - If NO  → send alert → add title to seen_log.txt
+   - If YES → skip → keep monitoring
+4. Wait 60 seconds
+5. Repeat
