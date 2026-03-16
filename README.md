@@ -61,11 +61,10 @@ Inside your .gitignore file there is a line that
   search on raw text is unreliable
 - Next: implement seen_log.txt deduplication logic 
   using BeautifulSoup title extraction
-1. Fetch the page
-2. Find all internship titles on the page
-3. For each title:
-   - Check if it exists in seen_log.txt
-   - If NO  → send alert → add title to seen_log.txt
-   - If YES → skip → keep monitoring
-4. Wait 60 seconds
-5. Repeat
+Diagnosed and resolved recurring Git merge conflict
+- Root cause: direct GitHub edits via phone/browser 
+  creating diverging commit history
+- Fixed using git fetch + git reset --hard origin/main
+- Repository clean and synced successfully
+- Established permanent rule: never edit on GitHub 
+  directly, always use VS Code + terminal
