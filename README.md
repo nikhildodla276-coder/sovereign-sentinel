@@ -68,3 +68,12 @@ Diagnosed and resolved recurring Git merge conflict
 - Repository clean and synced successfully
 - Established permanent rule: never edit on GitHub 
   directly, always use VS Code + terminal
+- Deleted test.py after successful HTML inspection
+- Identified correct HTML tags: div.internship_meta 
+  and h3.job-internship-name
+- Learned: HTML structure, href attribute extraction,
+  find() vs find_all(), defensive programming
+- Designed complete new sentinel.py logic with 
+  BeautifulSoup and seen_log.txt deduplication
+- Tomorrow: understand new code line by line, 
+  paste and test complete implementation
