@@ -1,6 +1,6 @@
 """
 Sentinel System: A robust job monitoring and alerting tool.
-This module scrapes target URLs for keywords and sends via Telegram.
+This module scrapes target URLs for internships title with link and sends via Telegram.
 """
 
 # Standard Libraries
@@ -10,11 +10,10 @@ import time
 
 # Third-Party Libraries
 import requests
-import urllib3
+from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 load_dotenv()
-urllib3.disable_warnings()
 
 TOKEN = os.getenv("TELEGRAM_TOKEN")
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
@@ -31,7 +30,22 @@ TARGET_URL = (
     "https://internshala.com"
     "/internships/artificial-intelligence-internship"
 )
-KEYWORD = "artificial intelligence"
+BASE_URL = "https://internshala.com"
+SEEN_LOG = "seen_log.txt"
+
+
+def load_seen():
+    """Loads previously seen internship URLs from file."""
+    if not os.path.exists(SEEN_LOG):
+        return set()
+    with open(SEEN_LOG, "r", encoding="utf-8") as f:
+        return set(line.strip() for line in f.readlines())
+
+
+def save_seen(url):
+    """Saves a new internship URL to the seen log file."""
+    with open(SEEN_LOG, "a", encoding="utf-8") as f:
+        f.write(url + "\n")
 
 
 def send_telegram_message(text):
@@ -58,30 +72,36 @@ while True:
         page_response = requests.get(
             TARGET_URL,
             headers=HEADERS,
-            verify=False,
             timeout=10
         )
 
-        page_content = page_response.text.lower()
-        print(
-            f"[{current_time}] DEBUG: "
-            f"Received {len(page_content)} characters."
-        )
+        soup = BeautifulSoup(page_response.text, "html.parser")
+        internships = soup.find_all("div", class_="internship_meta")
+        seen = load_seen()
 
-        if KEYWORD in page_content:
-            print(f"[{current_time}] Target Found! Sending alert...")
-            alert = (
-                f"<b>Sentinel Alert!</b>\n"
-                f"Keyword: <b>{KEYWORD}</b> found!\n"
-                f"URL: {TARGET_URL}\n"
-                f"Time: {current_time}"
-            )
-            send_telegram_message(alert)
-            break
+        print(f"[{current_time}] Found {len(internships)} listings.")
+
+        for item in internships:
+            title_tag = item.find("h3", class_="job-internship-name")
+            if title_tag:
+                link = title_tag.find("a")
+                if link:
+                    href = link["href"]
+                    title = title_tag.text.strip()
+                    if href not in seen:
+                        alert = (
+                            f"<b>New Internship Found!</b>\n"
+                            f"Title: <b>{title}</b>\n"
+                            f"URL: {BASE_URL}{href}\n"
+                            f"Time: {current_time}"
+                        )
+                        send_telegram_message(alert)
+                        save_seen(href)
+                        seen.add(href)
 
         print(
             f"[{current_time}] "
-            f"Keyword not found. Checking again in 60 seconds..."
+            f"Scan complete. Checking again in 60 seconds..."
         )
         time.sleep(60)
 
