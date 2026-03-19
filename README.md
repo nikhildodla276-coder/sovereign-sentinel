@@ -85,3 +85,12 @@ Diagnosed and resolved recurring Git merge conflict
 - Verified: no duplicate alerts on second run
 - Restored pylint score to 10/10 with utf-8 encoding
 - Project working live and monitoring 24/7
+### 19 March 2026
+- Completed full line by line code explanation
+- Understood: f-strings, dictionaries, try/except,
+  exception handling, while True loop, DRY principle,
+  Single Responsibility Principle, file modes,
+  set vs list, defensive programming
+- Passed technical interview questions on the project
+- Memorized project pitch for LinkedIn and interviews
+- Tomorrow: career doubts and next project planning
