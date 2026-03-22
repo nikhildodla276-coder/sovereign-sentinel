@@ -115,3 +115,11 @@ Diagnosed and resolved recurring Git merge conflict
   Project 3: Personal Productivity Bot
   Project 4: Business Automation Tool
 - Next: Start CS50P Week 4, design Project 2
+### 22 March 2026
+- Added Sentinel project to LinkedIn with full description
+- Set up exam-assistant project from scratch
+- Created GitHub repo, virtual environment, installed
+  groq, pymupdf, python-dotenv
+- Secured Groq API key
+- Tomorrow: write first Python file, test Groq API,
+  start building exam assistant core logic
