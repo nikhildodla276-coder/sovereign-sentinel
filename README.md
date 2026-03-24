@@ -1,125 +1,97 @@
-as# 🛡️ Sovereign Sentinel
-**An enterprise-grade Python monitoring engine for high-availability alerting.**
+# Sovereign Sentinel
 
-## 📊 Technical Validation
-- **Pylint Score:** 9.39/10 (Aiming for 10.00/10)
-- **Style Guide:** Strictly PEP 8 compliant
-- **Architecture:** Decoupled logic with environment-based security
-
-## 🛠 Features & Logical Enhancements
-Following a rigorous logical audit, the following engineering patterns were implemented:
-
-- **Defensive Networking:** Integrated `timeout` parameters for all HTTP requests to prevent process hanging.
-- **Specific Exception Handling:** Replaced generic error catches with targeted `requests.exceptions.RequestException` for better failure diagnosis.
-- **Secure Configuration:** Leveraged `python-dotenv` to isolate sensitive API tokens from the source code.
-- **Dynamic Payload System:** Refactored notification logic to use a unified argument system (Resolving W0613).
-
-## 🚀 Deployment
-1. Clone the repository.
-2. Configure `.env` with `TELEGRAM_TOKEN` and `TELEGRAM_CHAT_ID`.
-3. Run `pylint sentinel.py` to verify current health status.
-4. Execute `python sentinel.py`.
+A Python automation bot that continuously monitors Internshala for new AI internship listings and delivers instant alerts via Telegram.
 
 ---
-*"Work performed with discipline and according to standards is the highest form of action." — Inspired by Bhagavad Gita 18.23*
-- **Logic Integrity:** Resolved `E0602` (Undefined Variable) by synchronizing global constants with internal function logic.
-- **Refactor Excellence:** Eliminated `W0613` (Unused Argument) to ensure the `send_telegram_message` function is fully dynamic and efficient.
-- **Standardization:** Achieved full PEP 8 compliance for variable naming and hierarchical imports.
-Today’s work involved refining logic and eliminating redundancies within the codebase. By aligning the "senses" of the application with its core "mind," I am ensuring a more resilient and reality-based infrastructure.
-System Architecture: "Initializing the Core Intelligence Layer using local SLMs (Phi-4) to ensure 100% data sovereignty and privacy."
 
-Operational Dharma: "Deploying Autonomous Agentic Workflows designed to monitor, evaluate, and neutralize digital threats in real-time."
+## What It Does
 
-Final State Objective: "Building a resilient Security Fortress that automates the protection of family assets and personal digital identity through Vedic-Logic-informed AI.
-Brain (Local SLM): Using Microsoft Phi-4 or Llama 3.3-8B. These models are small enough to run on a standard laptop but sharp enough for complex logic.
+Sovereign Sentinel runs in the background and checks the Internshala AI internships page every 60 seconds. When a new listing is found that has not been seen before, it immediately sends a Telegram notification with the title and link. Already-seen listings are tracked in a local log file to prevent duplicate alerts.
 
-Memory (Vector DB): Using Milvus or ChromaDB to store your private documents (bank statements, family security logs) as encrypted "embeddings.
-Advancing the mission by deploying stable, logically-valued updates. My work today serves as a testament to steady action, prioritizing long-term structural truth over temporary fixes.
-Sovereign Sentinel: Progress Report
-Today’s work involved refining logic and eliminating redundancies within the codebase. By aligning the "senses" of the application with its core "mind," I am ensuring a more resilient and reality-based infrastructure.
-Refactored sentinel.py architecture for cleaner execution flow
-- Moved send_telegram_message() function outside main loop
-  for proper Python function definition practices
-- Fixed undefined variable bug causing notification failure
-- Resolved unused argument warning in Telegram function
-Migrated development environment from nano to VS Code with WSL integration. Diagnosed core logic bug in monitoring loop — break statement causing single-run termination. Planning keyword detection overhaul and continuous monitoring implementation.
-- Completed full explanation of all imports and their 
-  roles in the project
-- Understood SSL verification, .env security, and 
-  .gitignore protection logic
-- Migrated terminal from PowerShell to Ubuntu inside 
-  VS Code
-Optimized the decision-tree logic for an autonomous agentic workflow to reduce token latency by 15%. Refined the feedback loop between the intellect (system prompt) and the senses (API data retrieval) to ensure higher task-completion accuracy.
-Architected a decentralized inference pipeline to minimize reliance on centralized API costs. This strategic shift ensures the body of the project (the infrastructure) remains lean and resilient, maximizing potential profit margins for independent scaling.
-.gitignore is a special file that tells Git — "these specific files or folders should never be tracked or pushed to GitHub. Ignore them completely."
-Inside your .gitignore file there is a line that
-- Changed KEYWORD from "artificial intelligence" 
-  to "apply now" — fixes false trigger on URL match
-- Removed break statement — enables continuous monitoring
-- Installed BeautifulSoup4 for reliable HTML parsing
-- Understood raw HTML structure and why keyword 
-  search on raw text is unreliable
-- Next: implement seen_log.txt deduplication logic 
-  using BeautifulSoup title extraction
-Diagnosed and resolved recurring Git merge conflict
-- Root cause: direct GitHub edits via phone/browser 
-  creating diverging commit history
-- Fixed using git fetch + git reset --hard origin/main
-- Repository clean and synced successfully
-- Established permanent rule: never edit on GitHub 
-  directly, always use VS Code + terminal
-- Deleted test.py after successful HTML inspection
-- Identified correct HTML tags: div.internship_meta 
-  and h3.job-internship-name
-- Learned: HTML structure, href attribute extraction,
-  find() vs find_all(), defensive programming
-- Designed complete new sentinel.py logic with 
-  BeautifulSoup and seen_log.txt deduplication
-- Tomorrow: understand new code line by line, 
-  paste and test complete implementation
-  ### 18 March 2026
-- Sentinel project COMPLETED
-- Implemented BeautifulSoup HTML parsing
-- Implemented seen_log.txt deduplication system
-- Bot successfully sends unique internship alerts
-- Verified: no duplicate alerts on second run
-- Restored pylint score to 10/10 with utf-8 encoding
-- Project working live and monitoring 24/7
-### 19 March 2026
-- Completed full line by line code explanation
-- Understood: f-strings, dictionaries, try/except,
-  exception handling, while True loop, DRY principle,
-  Single Responsibility Principle, file modes,
-  set vs list, defensive programming
-- Passed technical interview questions on the project
-- Memorized project pitch for LinkedIn and interviews
-- Tomorrow: career doubts and next project planning
-### 20 March 2026
-- Completed full code understanding and verification
-- Passed technical interview questions on Sentinel
-- Memorized project pitch for LinkedIn and interviews
-- Cleared career doubts and planned realistic path
-- Discussed sovereign life vision and timeline
-- Identified long term product direction
-- Key lessons: DRY principle, Single Responsibility,
-  defensive programming, file modes, set vs list,
-  exception handling, f-strings, dictionaries
-- Tomorrow: LinkedIn update, GitHub Student Pack,
-  Wellfound profile, plan next project
-  ### 21 March 2026
-- Applied for GitHub Student Developer Pack
-- Added Sovereign Sentinel project to LinkedIn
-- Updated LinkedIn About section and headline
-- Planned next 3 projects roadmap:
-  Project 2: Exam Assistant with LLM API
-  Project 3: Personal Productivity Bot
-  Project 4: Business Automation Tool
-- Next: Start CS50P Week 4, design Project 2
-### 22 March 2026
-- Added Sentinel project to LinkedIn with full description
-- Set up exam-assistant project from scratch
-- Created GitHub repo, virtual environment, installed
-  groq, pymupdf, python-dotenv
-- Secured Groq API key
-- Tomorrow: write first Python file, test Groq API,
-  start building exam assistant core logic
+---
+
+## How It Works
+
+1. Fetches the Internshala AI internships page using a browser-like request header
+2. Parses the HTML using BeautifulSoup to extract internship titles and links
+3. Compares each listing against `seen_log.txt` to check if it is new
+4. Sends a Telegram alert for any new listing found
+5. Saves the new listing URL to `seen_log.txt`
+6. Waits 60 seconds and repeats
+7. On connection failure, waits 10 seconds and retries automatically
+
+---
+
+## Tech Stack
+
+| Tool | Purpose |
+|---|---|
+| Python 3 | Core language |
+| requests | HTTP requests to Internshala and Telegram API |
+| BeautifulSoup4 | HTML parsing |
+| python-dotenv | Secure environment variable management |
+| Telegram Bot API | Delivering alerts |
+
+---
+
+## Project Structure
+
+```
+sovereign-sentinel/
+├── sentinel.py        # Main bot logic
+├── seen_log.txt       # Tracks already-alerted internship URLs
+├── requirements.txt   # Python dependencies
+├── .env               # API credentials (not tracked by Git)
+├── .gitignore         # Excludes .env and other sensitive files
+└── LICENSE
+```
+
+---
+
+## Setup and Usage
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/nikhildodla276-coder/sovereign-sentinel.git
+cd sovereign-sentinel
+```
+
+### 2. Create a virtual environment and install dependencies
+
+```bash
+python -m venv venv
+source venv/bin/activate        # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 3. Create your `.env` file
+
+```
+TELEGRAM_TOKEN=your_bot_token_here
+TELEGRAM_CHAT_ID=your_chat_id_here
+```
+
+### 4. Run the bot
+
+```bash
+python sentinel.py
+```
+
+The bot will start monitoring immediately and send Telegram alerts when new AI internships are posted.
+
+---
+
+## Code Quality
+
+- Pylint Score: **10/10**
+- PEP 8 compliant
+- Environment-based credential management via python-dotenv
+- Targeted exception handling for network failures
+- Timeout parameter on all HTTP requests to prevent process hanging
+
+---
+
+## License
+
+MIT License
