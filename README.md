@@ -95,11 +95,3 @@ The bot will start monitoring immediately and send Telegram alerts when new AI i
 ## License
 
 MIT License
-
-echo "# exam-assistant" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/nikhildodla276-coder/exam-assistant.git
-git push -u origin main
