@@ -1,9 +1,28 @@
 """Practicing this project from scratch with absolute basics"""
 
-internship_title = "AI Automation Engineering"
-company_name = "Google"
-stipend_amount = 15000
-apply_link = "https://internshala.com/internship/detail/ai-ml-123"
+internships = [
+    {
+        "title": "AI Engineer",
+        "company": "Google",
+        "stipend": 5000,
+        "apply_link": "https://internshala.com/internship/detail/ai-ml-123"
+    },
+    {
+        "title": "AI Automation",
+        "company": "Microsoft",
+        "stipend": 59000,
+        "apply_link": "https://internshala.com/internship/detail/ai-automation-123"
+    },
+    {
+        "title": "ML Engineer",
+        "company": "Infosys",
+        "stipend": 35000,
+        "apply_link": "https://internshala.com/internship/detail/ml-engineer-123"
+    }
+]
 
-telegram_message = f" New Internship Found!\n Title: {internship_title}\n Company: {company_name}\n Stipend: {stipend_amount}/month\n Apply: {apply_link}"
-print(telegram_message)
+for dictionary in internships:
+    if "AI" in dictionary["title"] and dictionary["stipend"] >= 5000:
+        print(f"New Internship Found!\nTitle: {dictionary["title"]}\nCompany: {dictionary["company"]}\nStipend: {dictionary["stipend"]}\nApply: {dictionary["apply_link"]}")
+    else:
+        print(f"Skipping: {dictionary["title"]}")
