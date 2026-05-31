@@ -18,6 +18,8 @@ SEEN_LOG = "seen_log.txt"
 
 TARGET_URL = "https://internshala.com/internships/artificial-intelligence-internship"
 
+BASE_URL = "https://internshala.com"
+
 
 def load_seen():
     """Loads all previosly seen internship URLs from seen_log.txt"""
@@ -52,4 +54,42 @@ HEADERS = {
         "AppleWebKit/537.36 (KHTML, like Gecko)"
         "Chrome/91.0.4472.124 Safari/537.36"
 }
+
+while True:
+    try:
+        current_time = datetime.now().strftime("%H:%M:%S")
+        print(f"[{current_time}] Checking target website...")
+        page_response = requests.get(TARGET_URL, headers=HEADERS, timeout=10)
+        
+        soup = BeautifulSoup(page_response.text, "html.parser")
+        internships = soup.find_all("div", class_="internship_meta")
+        seen = load_seen()
+
+        print(f"[{current_time}] Found {len(internships)} listings.")
+        for item in internships:
+            title_tag = item.find("h3", class_="job-internship-name")
+            if title_tag:
+                link = title_tag.find("a")
+                if link:
+                    href = link["href"]
+                    title = title_tag.text.strip()
+                    if href not in seen:
+                        alert = (
+                            f"<b>New Internship Found!</b>\n"
+                            f"Title: <b>{title}</b>\n"
+                            f"URL: {BASE_URL}{href}\n"
+                            f"Time: {current_time}"
+                        )
+                        send_telegram_message(alert)
+                        save_seen(href)
+                        seen.add(href)
+
+                        print(f"[{current_time}] Scan complete. Checking again in next 1 hour.")
+
+        time.sleep(3600)
+
+    except Exception as e:
+        print(f"Connection Error: {e}")
+        time.sleep(10)
+
 
