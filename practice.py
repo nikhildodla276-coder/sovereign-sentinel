@@ -1,5 +1,7 @@
 """Practicing this project from scratch with absolute basics"""
 
+Web Scraping: An automated script or software tool designed to extract data from websites.
+
 def check_internship(title, company, stipend):
     if "AI" in title and stipend >= 5000:
         return(f"New Internship Found!\ntitle: {title}\ncompany: {company}\nstipend: {stipend}")
